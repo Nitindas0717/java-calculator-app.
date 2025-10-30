@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 100px;
+        }
+        .calc-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        input, select, button {
+            margin: 10px 0;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        #result {
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="calc-box">
+        <h2>🧮 Java Calculator</h2>
+        <input type="number" id="a" placeholder="Enter first number">
+        <input type="number" id="b" placeholder="Enter second number">
+        <select id="operation">
+            <option value="add">Addition (+)</option>
+            <option value="subtract">Subtraction (-)</option>
+            <option value="multiply">Multiplication (×)</option>
+            <option value="divide">Division (÷)</option>
+        </select>
+        <button onclick="calculate()">Calculate</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        async function calculate() {
+            const a = document.getElementById('a').value;
+            const b = document.getElementById('b').value;
+            const op = document.getElementById('operation').value;
+
+            if (a === '' || b === '') {
+                alert('Please enter both numbers');
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/${op}?a=${a}&b=${b}`);
+                const result = await response.text();
+                document.getElementById('result').innerText = `Result: ${result}`;
+            } catch (error) {
+                document.getElementById('result').innerText = 'Error performing calculation';
+            }
+        }
+    </script>
+</body>
+</html>
