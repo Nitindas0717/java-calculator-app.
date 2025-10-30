@@ -102,6 +102,23 @@ minikube service calculator-service
 - **Minikube:** Local K8s cluster for testing before cloud deployment.
 
 ---
+## 🖼️ Application Screenshots
+
+### 🧮 Java Calculator Web App UI
+
+<p align="center">
+  <img src="./screenshots/running_app.png" alt="Java Calculator Web App UI" width="400" />
+</p>
+
+> This screenshot shows the clean and minimal **Java Calculator Web App UI**, built using Java and containerized with **Docker**, deployed via **Kubernetes (Minikube)** for scalability and portability.
+
+### 🐋 Docker Image
+
+<p align="center">
+  <img src="./screenshots/docker_image.png" alt="Java Calculator Web App UI" width="400" />
+</p>
+
+> This screenshot shows **Docker Image** of the **Java Calculator Web App UI** from the docker hub.
 
 ## 🧑‍💻 Author
 **NITIN** — DevOps Enthusiast 🚀  
